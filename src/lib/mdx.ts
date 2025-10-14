@@ -14,23 +14,24 @@ export function getPostFiles(category?: BlogCategory): string[] {
     if (!fs.existsSync(categoryPath)) {
       return [];
     }
-    return fs.readdirSync(categoryPath).filter(file => file.endsWith('.mdx'));
+    return fs.readdirSync(categoryPath).filter((file) => file.endsWith('.mdx'));
   }
-  
+
   // Get files from all categories
   const categories: BlogCategory[] = ['it', 'speaking', 'offtopic'];
   const allFiles: string[] = [];
-  
-  categories.forEach(cat => {
+
+  categories.forEach((cat) => {
     const categoryPath = path.join(contentDirectory, cat);
     if (fs.existsSync(categoryPath)) {
-      const files = fs.readdirSync(categoryPath)
-        .filter(file => file.endsWith('.mdx'))
-        .map(file => `${cat}/${file}`);
+      const files = fs
+        .readdirSync(categoryPath)
+        .filter((file) => file.endsWith('.mdx'))
+        .map((file) => `${cat}/${file}`);
       allFiles.push(...files);
     }
   });
-  
+
   return allFiles;
 }
 
@@ -41,14 +42,14 @@ export function getPostBySlug(slug: string): BlogPost | null {
   try {
     // Try to find the file in any category
     const categories: BlogCategory[] = ['it', 'speaking', 'offtopic'];
-    
+
     for (const category of categories) {
       const filePath = path.join(contentDirectory, category, `${slug}.mdx`);
-      
+
       if (fs.existsSync(filePath)) {
         const fileContents = fs.readFileSync(filePath, 'utf8');
         const { data, content } = matter(fileContents);
-        
+
         return {
           id: data.id || slug,
           title: data.title,
@@ -64,7 +65,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
         };
       }
     }
-    
+
     return null;
   } catch (error) {
     console.error(`Error reading post ${slug}:`, error);
@@ -77,9 +78,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
  */
 export function getAllPosts(): BlogPost[] {
   const files = getPostFiles();
-  
+
   const posts = files
-    .map(file => {
+    .map((file) => {
       // Extract slug from file path (e.g., "it/my-post.mdx")
       const [, filename] = file.split('/');
       const slug = filename.replace('.mdx', '');
@@ -90,7 +91,7 @@ export function getAllPosts(): BlogPost[] {
       // Sort by date, newest first
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
-  
+
   return posts;
 }
 
@@ -98,14 +99,14 @@ export function getAllPosts(): BlogPost[] {
  * Get all published posts
  */
 export function getAllPublishedPosts(): BlogPost[] {
-  return getAllPosts().filter(post => post.published);
+  return getAllPosts().filter((post) => post.published);
 }
 
 /**
  * Get posts by category
  */
 export function getPostsByCategory(category: BlogCategory): BlogPost[] {
-  return getAllPublishedPosts().filter(post => post.category === category);
+  return getAllPublishedPosts().filter((post) => post.category === category);
 }
 
 /**
@@ -132,10 +133,10 @@ function calculateReadTime(content: string): string {
 export function getAllTags(): string[] {
   const posts = getAllPublishedPosts();
   const tagsSet = new Set<string>();
-  
-  posts.forEach(post => {
-    post.tags.forEach(tag => tagsSet.add(tag));
+
+  posts.forEach((post) => {
+    post.tags.forEach((tag) => tagsSet.add(tag));
   });
-  
+
   return Array.from(tagsSet).sort();
 }

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className={`${CONTAINER_CLASS} relative overflow-hidden`}>
       <BackgroundGradient />
-      
+
       <div className="relative z-10">
         <Navigation />
 

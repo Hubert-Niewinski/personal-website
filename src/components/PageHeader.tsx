@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { GradientText } from '@/components/ui/GradientText';
 
 interface PageHeaderProps {
   title: string;
@@ -8,26 +9,28 @@ interface PageHeaderProps {
   subtitleSize?: 'base' | 'lg' | 'xl';
 }
 
-export function PageHeader({ 
-  title, 
-  subtitle, 
+export function PageHeader({
+  title,
+  subtitle,
   description,
   className = '',
-  subtitleSize = 'lg'
+  subtitleSize = 'lg',
 }: PageHeaderProps) {
   const subtitleSizeClass = {
     base: 'text-lg sm:text-xl',
     lg: 'text-lg sm:text-xl',
-    xl: 'text-xl sm:text-2xl'
+    xl: 'text-xl sm:text-2xl',
   }[subtitleSize];
 
   return (
     <div className={`mb-12 text-center ${className}`}>
-      <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-slate-200 to-slate-300 bg-clip-text text-transparent">
+      <GradientText as="h1" className="text-4xl sm:text-5xl font-bold mb-4">
         {title}
-      </h1>
+      </GradientText>
       {subtitle && (
-        <p className={`${subtitleSizeClass} ${subtitle && description ? 'mb-6' : ''} text-balance text-slate-400`}>
+        <p
+          className={`${subtitleSizeClass} ${subtitle && description ? 'mb-6' : ''} text-balance text-slate-400`}
+        >
           {subtitle}
         </p>
       )}

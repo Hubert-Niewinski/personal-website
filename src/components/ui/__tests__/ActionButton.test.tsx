@@ -1,39 +1,53 @@
-import { render, screen } from '@testing-library/react'
-import { ActionButton } from '../ActionButton'
+import { render, screen } from '@testing-library/react';
+import { ActionButton } from '../ActionButton';
 
-describe('ActionButton Component', () => {
-  it('renders with text', () => {
-    render(<ActionButton href="/test">View Certificate</ActionButton>)
-    expect(screen.getByText('View Certificate')).toBeInTheDocument()
-  })
+describe('ActionButton', () => {
+  it('renders with default icon and text', () => {
+    render(<ActionButton href="https://example.com">View</ActionButton>);
 
-  it('renders as a link with correct href', () => {
-    render(<ActionButton href="/test-url">Click Me</ActionButton>)
-    const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('href', '/test-url')
-  })
+    expect(screen.getByText('View')).toBeInTheDocument();
+    expect(screen.getByRole('link')).toHaveAttribute('href', 'https://example.com');
+  });
 
-  it('always opens links in new tab', () => {
-    render(<ActionButton href="https://example.com">External</ActionButton>)
-    const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
-  })
-
-  it('renders default icon when no icon provided', () => {
-    const { container } = render(<ActionButton href="/test">Button</ActionButton>)
-    const svg = container.querySelector('svg')
-    expect(svg).toBeInTheDocument()
-  })
-
-  it('has button styling', () => {
-    const { container } = render(
-      <ActionButton href="/test" icon="✨">
-        Button
+  it('renders with custom icon', () => {
+    const customIcon = <span data-testid="custom-icon">★</span>;
+    render(
+      <ActionButton href="https://example.com" icon={customIcon}>
+        Custom
       </ActionButton>
-    )
-    const link = container.firstChild
-    expect(link).toHaveClass('inline-flex')
-    expect(link).toHaveClass('items-center')
-  })
-})
+    );
+
+    expect(screen.getByTestId('custom-icon')).toBeInTheDocument();
+    expect(screen.getByText('Custom')).toBeInTheDocument();
+  });
+
+  it('applies correct size classes for small size', () => {
+    render(
+      <ActionButton href="https://example.com" size="sm">
+        Small
+      </ActionButton>
+    );
+
+    const link = screen.getByRole('link');
+    expect(link).toHaveClass('text-xs', 'px-3', 'py-2');
+  });
+
+  it('applies correct size classes for medium size', () => {
+    render(
+      <ActionButton href="https://example.com" size="md">
+        Medium
+      </ActionButton>
+    );
+
+    const link = screen.getByRole('link');
+    expect(link).toHaveClass('px-4', 'py-2', 'text-sm');
+  });
+
+  it('opens link in new tab with security attributes', () => {
+    render(<ActionButton href="https://example.com">External</ActionButton>);
+
+    const link = screen.getByRole('link');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+});

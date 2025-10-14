@@ -68,6 +68,7 @@ Hooks (Shared Logic)
 ## File Dependencies
 
 ### page.tsx depends on:
+
 - types/styles.ts
 - hooks/useIntersectionObserver.ts
 - components/Navigation.tsx
@@ -77,24 +78,29 @@ Hooks (Shared Logic)
 - components/Footer.tsx
 
 ### Navigation.tsx depends on:
+
 - types/styles.ts
 - constants/navigation.ts
 - hooks/useScroll.ts
 
 ### HeroSection.tsx depends on:
+
 - types/styles.ts
 - components/ui/Button.tsx
 
 ### ServicesSection.tsx depends on:
+
 - types/styles.ts
 - constants/services.ts
 - components/ServiceCard.tsx
 
 ### ServiceCard.tsx depends on:
+
 - types/styles.ts
 - constants/services.ts (Service interface)
 
 ### Footer.tsx depends on:
+
 - types/styles.ts
 
 ## Props Interface Patterns
@@ -104,12 +110,13 @@ All components follow a consistent prop pattern:
 ```typescript
 interface ComponentProps {
   selectedStyle: StyleOption;
-  currentStyle?: StyleConfig;  // Only for components needing style object
+  currentStyle?: StyleConfig; // Only for components needing style object
   // ... other specific props
 }
 ```
 
 This ensures:
+
 - Type safety across all components
 - Consistent styling behavior
 - Easy to understand component APIs

@@ -25,21 +25,13 @@ export function Button({ children, onClick, href, className = '', testId }: Butt
     <div className="relative group">
       {/* Gradient border container */}
       <div className="absolute -inset-[2px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-blue-500 via-purple-400 to-blue-500 blur-sm"></div>
-      
+
       {href ? (
-        <a 
-          href={href}
-          className={baseStyles}
-          data-test-id={testId}
-        >
+        <a href={href} className={baseStyles} data-test-id={testId}>
           {content}
         </a>
       ) : (
-        <button 
-          onClick={onClick}
-          className={baseStyles}
-          data-test-id={testId}
-        >
+        <button onClick={onClick} className={baseStyles} data-test-id={testId}>
           {content}
         </button>
       )}

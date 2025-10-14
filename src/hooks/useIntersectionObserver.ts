@@ -17,9 +17,9 @@ export function useIntersectionObserver() {
           }
         });
       },
-      { 
-        threshold: 0.15, 
-        rootMargin: '50px 0px -100px 0px' // Positive top margin to catch elements already in view
+      {
+        threshold: 0.15,
+        rootMargin: '50px 0px -100px 0px', // Positive top margin to catch elements already in view
       }
     );
 
@@ -28,7 +28,7 @@ export function useIntersectionObserver() {
     elements.forEach((el) => {
       const rect = el.getBoundingClientRect();
       const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-      
+
       // If element is already in viewport, show it immediately
       if (isInViewport) {
         el.classList.add('animate-fade-in-view');
