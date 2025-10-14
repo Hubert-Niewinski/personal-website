@@ -19,11 +19,45 @@ export function BlogClient({ allPosts }: BlogClientProps) {
 
   return (
     <PageLayout>
-      <PageHeader
-        title="Blog"
-        subtitle="Thoughts on software development, public speaking, and life"
-        className="max-w-3xl mx-auto"
-      />
+      <div>
+        <PageHeader
+          title="Blog"
+          subtitle="Thoughts on software development, public speaking, and life"
+          className="max-w-3xl mx-auto"
+        />
+        {/* RSS Feed Button */}
+        <div className="text-center mt-8 mb-8">
+          <a
+            href="/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-xl font-medium text-sm bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z" />
+            </svg>
+            <span>Subscribe via RSS</span>
+            <svg
+              className="w-4 h-4 opacity-70"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
 
       {/* Category Filters */}
       <div className="mb-12">

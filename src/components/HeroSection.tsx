@@ -41,13 +41,18 @@ export function HeroSection() {
               Software Engineer and Public Speaker
             </p>
             <p className="text-base sm:text-lg leading-[1.7] max-w-2xl lg:mx-0 mx-auto text-[#C8C8E0] text-pretty">
-              Senior Test Automation Engineer and Technical Assessor at Sii Poland. While test
-              automation is my core specialization, I bring hands-on experience in full-stack
-              development, DevOps practices, and AI technologies—skills I actively develop in side
-              projects and continuous learning. Active speaker at IT meetups (meet.js, BiałQA) and
-              company webinars. Toastmasters International member for 6 years with multiple speech
-              contest wins at club and area levels. Off the court, I&apos;m a huge basketball fan
-              and enthusiastic amateur player—passion level: 100%, talent level: debatable at best.
+              Senior Test Automation Engineer and Technical Assessor at Sii Poland. Test automation
+              is my core specialization, complemented by hands-on experience in full-stack
+              development, DevOps practices, and AI technologies—skills I continuously sharpen
+              through side projects and learning. Regular speaker at IT meetups (meet.js, BiałQA)
+              and company webinars. Toastmasters International member for 6+ years with multiple
+              speech contest wins at club and area levels. Off the court, I&apos;m a huge basketball
+              fan and enthusiastic amateur player—passion level: 100%, talent level: debatable at
+              best.
+            </p>
+            <p className="text-sm sm:text-base mt-4 text-slate-400">
+              📍 Based in Białystok, Poland • 🗣️ Polish (Native), English (Fluent), German
+              (Intermediate)
             </p>
           </div>
         </div>

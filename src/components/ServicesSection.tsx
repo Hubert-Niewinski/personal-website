@@ -36,14 +36,11 @@ export function ServicesSection() {
         {/* Simple text CTA */}
         <div className="text-center mt-16">
           <p className="text-lg leading-[1.7] text-[#C8C8E0]">
-            Ready to improve your testing and development processes?
+            Interested in working together? I&apos;d love to hear about your project.
           </p>
           <p className="text-sm mt-2 leading-[1.7] text-slate-400">
-            If I&apos;m not available or the project isn&apos;t in my area of expertise, I&apos;m
-            happy to recommend trusted professionals from my network.
-          </p>
-          <p className="text-sm mt-1 leading-[1.7] text-slate-500">
-            Scroll down to learn more about my experience and approach.
+            If it&apos;s outside my expertise, I&apos;m happy to recommend someone from my network
+            who would be a better fit.
           </p>
         </div>
       </section>
