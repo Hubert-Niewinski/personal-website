@@ -2,11 +2,16 @@ import { render, screen } from '@testing-library/react';
 import { HeroSection } from '../HeroSection';
 
 // Mock Next.js Image component
+type NextImageMockProps = React.ImgHTMLAttributes<HTMLImageElement> & { priority?: boolean };
+
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+  default: (props: NextImageMockProps) => {
+    const { priority, ...rest } = props;
+    void priority;
+
     // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-    return <img {...props} />;
+    return <img {...rest} />;
   },
 }));
 
