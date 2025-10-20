@@ -20,8 +20,7 @@ The pre-commit hook runs **three stages** in order:
 
 ### 3. **Unit Tests** (Jest)
 
-- Runs tests related to the files being committed
-- Uses `--findRelatedTests` to only test affected code
+- Runs **all tests** in the test suite
 - Uses `--bail` to stop on first failure
 - Uses `--passWithNoTests` to not fail if no tests exist
 
@@ -92,7 +91,7 @@ When you commit changes:
    - For `.js`, `.jsx`, `.ts`, `.tsx`:
      - ✨ Prettier formats the code
      - 🔍 ESLint checks and fixes issues
-     - 🧪 Jest runs related tests
+     - 🧪 Jest runs **all tests**
    - For `.json`, `.md`, `.css`:
      - ✨ Prettier formats the code
 4. **If all checks pass**: Commit succeeds ✅
@@ -165,7 +164,7 @@ Edit `package.json` under `lint-staged` section:
   "*.{js,jsx,ts,tsx}": [
     "prettier --write",
     "eslint --fix",
-    "jest --bail --findRelatedTests --passWithNoTests"
+    "jest --bail --passWithNoTests"
   ]
 }
 ```
@@ -220,7 +219,7 @@ pnpm prepare
 - ✅ **Catch bugs early** before they reach the repository
 - ✅ **Automatic fixes** for common issues
 - ✅ **Fast feedback loop** - know immediately if something is wrong
-- ✅ **Only tests affected code** - faster than running all tests
+- ✅ **Full test coverage** - all tests run before commit
 - ✅ **Prevents broken code** from being committed
 
 ## 🎓 Best Practices

@@ -20,7 +20,7 @@
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "jest --bail --findRelatedTests --passWithNoTests"
+      "jest --bail --passWithNoTests"
     ],
     "*.{json,md,css}": [
       "prettier --write"
