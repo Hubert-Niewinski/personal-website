@@ -5,11 +5,28 @@ Professional portfolio and blog for QA Engineer & Test Automation Expert.
 ## 🚀 Quick Start
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Visit http://localhost:3000
+
+## 📦 Why pnpm?
+
+This project uses **pnpm** instead of npm for several benefits:
+
+- ⚡ **Faster installs** - Up to 2x faster than npm
+- 💾 **Disk space efficient** - Shared dependency storage
+- 🔒 **Better security** - Strict dependency resolution
+- 🎯 **More reliable** - Better handling of registry issues
+
+If you don't have pnpm installed:
+
+```bash
+npm install -g pnpm
+# or
+brew install pnpm  # macOS
+```
 
 ## 📁 Project Structure
 
@@ -54,6 +71,7 @@ src/
 ## 🎨 Tech Stack
 
 - **Framework:** Next.js 15.5.4 with App Router + Turbopack
+- **Package Manager:** pnpm (faster and more reliable than npm)
 - **Language:** TypeScript (strict mode)
 - **Styling:** Tailwind CSS 4
 - **Content:** MDX for blog posts
@@ -94,22 +112,28 @@ src/
 
 ```bash
 # Development
-npm run dev              # Start dev server with Turbopack
+pnpm dev                 # Start dev server with Turbopack
 
 # Code Quality
-npm run lint             # Run ESLint
-npm run lint:fix         # Auto-fix ESLint issues
-npm run format           # Format with Prettier
-npm run format:check     # Check formatting
+pnpm lint                # Run ESLint
+pnpm lint:fix            # Auto-fix ESLint issues
+pnpm format              # Format with Prettier
+pnpm format:check        # Check formatting
 
 # Testing
-npm test                 # Run Jest tests
-npm run test:watch       # Watch mode
-npm run test:coverage    # Generate coverage report
+pnpm test                # Run Jest tests
+pnpm test:watch          # Watch mode
+pnpm test:coverage       # Generate coverage report
 
 # Build
-npm run build            # Production build
-npm start                # Start production server
+pnpm build               # Production build
+pnpm start               # Start production server
+
+# Dependencies
+pnpm add <package>       # Add a dependency
+pnpm add -D <package>    # Add a dev dependency
+pnpm remove <package>    # Remove a dependency
+pnpm update              # Update dependencies
 ```
 
 ## 📝 Content Management
@@ -204,9 +228,10 @@ Edit `/src/constants/services.ts` for service offerings.
 ## 🐛 Common Issues
 
 **Build errors:** Check TypeScript strict mode compliance
-**Pre-commit fails:** Run `npm run format` and `npm run lint:fix`
+**Pre-commit fails:** Run `pnpm format` and `pnpm lint:fix`
 **Comments not loading:** Verify Giscus repo ID in Comments.tsx
 **RSS feed empty:** Ensure blog posts have `published: true`
+**Switching from npm:** Delete `node_modules` and `package-lock.json`, then run `pnpm install`
 
 ## 📊 Analytics & SEO
 

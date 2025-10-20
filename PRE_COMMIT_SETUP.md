@@ -41,33 +41,33 @@ The pre-commit hook runs **three stages** in order:
 
 ```bash
 # Check formatting issues
-npm run format:check
+pnpm format:check
 
 # Fix formatting issues
-npm run format
+pnpm format
 ```
 
 ### Linting
 
 ```bash
 # Check linting issues
-npm run lint
+pnpm lint
 
 # Fix auto-fixable linting issues
-npm run lint:fix
+pnpm lint:fix
 ```
 
 ### Testing
 
 ```bash
 # Run all tests
-npm run test
+pnpm test
 
 # Run tests in watch mode
-npm run test:watch
+pnpm test:watch
 
 # Run tests with coverage
-npm run test:coverage
+pnpm test:coverage
 ```
 
 ## 🛠️ Setup (Already Done)
@@ -76,10 +76,10 @@ The pre-commit hook is already set up in this project. If you need to reinstall:
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Initialize Husky
-npm run prepare
+pnpm prepare
 ```
 
 ## 📝 How It Works
@@ -176,42 +176,42 @@ Edit `package.json` under `lint-staged` section:
 
 ```bash
 # Reinstall Husky
-npm run prepare
+pnpm prepare
 ```
 
 ### Prettier formatting conflicts
 
 ```bash
 # Format all files
-npm run format
+pnpm format
 ```
 
 ### ESLint errors
 
 ```bash
 # Check for linting errors
-npm run lint
+pnpm lint
 
 # Try to auto-fix
-npm run lint:fix
+pnpm lint:fix
 ```
 
 ### Tests failing
 
 ```bash
 # Run tests locally
-npm run test
+pnpm test
 
 # Run tests in watch mode to debug
-npm run test:watch
+pnpm test:watch
 ```
 
 ### Husky not installed
 
 ```bash
 # Install Husky
-npm install --save-dev husky
-npm run prepare
+pnpm add -D husky
+pnpm prepare
 ```
 
 ## 📊 Benefits
@@ -228,8 +228,8 @@ npm run prepare
 1. **Don't skip the hook** - It's there to help you
 2. **Fix issues locally** before committing
 3. **Write tests** for your code
-4. **Run tests manually** if you want faster feedback: `npm run test:watch`
-5. **Format before staging** if you want: `npm run format`
+4. **Run tests manually** if you want faster feedback: `pnpm test:watch`
+5. **Format before staging** if you want: `pnpm format`
 
 ## 📚 Additional Resources
 
