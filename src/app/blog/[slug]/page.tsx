@@ -13,7 +13,6 @@ import { CONTAINER_CLASS } from '@/types/styles';
 import { blogCategories } from '@/constants/blog';
 import { siteConfig, authorConfig } from '@/constants/metadata';
 import { generateBlogPostSchema } from '@/lib/structured-data';
-import 'highlight.js/styles/github-dark.css';
 
 interface BlogPostPageProps {
   params: Promise<{
