@@ -11,7 +11,7 @@ export function HeroSection() {
         <div className="relative" data-test-id="profile-photo">
           <div className="w-48 h-60 sm:w-56 sm:h-72 lg:w-72 lg:h-96 rounded-3xl bg-gradient-to-br from-slate-600 to-slate-700 p-1 shadow-2xl shadow-slate-900/50 hover:shadow-slate-900/70 transition-shadow duration-500">
             <Image
-              src="/profile.jpeg"
+              src="/profile.jpg"
               alt="Hubert Niewiński - Software Engineer and Public Speaker"
               className="w-full h-full rounded-3xl object-cover"
               width={288}

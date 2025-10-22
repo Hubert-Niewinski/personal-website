@@ -118,7 +118,7 @@ describe('HeroSection', () => {
     it('should load profile image with correct path', () => {
       render(<HeroSection />);
       const image = screen.getByAltText('Hubert Niewiński - Software Engineer and Public Speaker');
-      expect(image).toHaveAttribute('src', '/profile.jpeg');
+      expect(image).toHaveAttribute('src', '/profile.jpg');
     });
 
     it('should have proper image dimensions', () => {
