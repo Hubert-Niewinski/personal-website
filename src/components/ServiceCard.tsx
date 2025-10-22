@@ -5,16 +5,29 @@ interface ServiceCardProps {
   index: number;
 }
 
+// Variant styles following DRY principle
+const CARD_VARIANTS = {
+  primary: {
+    container:
+      'bg-gradient-to-br from-blue-900/30 to-slate-900/40 border-2 border-blue-500/50 hover:border-blue-400/70 hover:shadow-blue-500/30',
+    icon: 'bg-blue-700/30 text-blue-300 group-hover:bg-blue-600/40 group-hover:text-blue-200',
+    title: 'text-blue-100 group-hover:text-blue-50',
+  },
+  secondary: {
+    container:
+      'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/40 hover:border-slate-500/70 hover:shadow-slate-400/20',
+    icon: 'bg-slate-700/20 text-slate-400 group-hover:bg-slate-600/30 group-hover:text-slate-300',
+    title: 'text-white group-hover:text-slate-300',
+  },
+} as const;
+
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const isPrimary = service.level === 'primary';
-  
+  const variant = CARD_VARIANTS[service.level || 'secondary'];
+
   return (
-    <div 
-      className={`group relative p-5 sm:p-6 lg:p-8 rounded-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-3 perspective-card backdrop-blur-sm hover:shadow-2xl ${
-        isPrimary 
-          ? 'bg-gradient-to-br from-blue-900/30 to-slate-900/40 border-2 border-blue-500/50 hover:border-blue-400/70 hover:shadow-blue-500/30' 
-          : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/40 hover:border-slate-500/70 hover:shadow-slate-400/20'
-      }`}
+    <div
+      className={`group relative p-5 sm:p-6 lg:p-8 rounded-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-3 perspective-card backdrop-blur-sm hover:shadow-2xl ${variant.container}`}
       data-test-id={service.testId}
       data-animate="fade-in"
       style={{ animationDelay: `${index * 100}ms` }}
@@ -25,27 +38,30 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           ⭐ Primary Expertise
         </div>
       )}
-      
+
       {/* Shimmer effect on hover */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
         <div className="absolute inset-0 animate-shimmer"></div>
       </div>
-      
+
       {/* Icon */}
-      <div className={`relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl mb-4 sm:mb-5 lg:mb-6 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${
-        isPrimary 
-          ? 'bg-blue-700/30 text-blue-300 group-hover:bg-blue-600/40 group-hover:text-blue-200' 
-          : 'bg-slate-700/20 text-slate-400 group-hover:bg-slate-600/30 group-hover:text-slate-300'
-      }`}>
-        <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div
+        className={`relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl mb-4 sm:mb-5 lg:mb-6 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${variant.icon}`}
+      >
+        <svg
+          className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-transform duration-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={service.icon} />
         </svg>
       </div>
 
       {/* Title */}
-      <h3 className={`text-lg sm:text-xl font-semibold mb-3 sm:mb-4 transition-colors duration-300 ${
-        isPrimary ? 'text-blue-100 group-hover:text-blue-50' : 'text-white group-hover:text-slate-300'
-      }`}>
+      <h3
+        className={`text-lg sm:text-xl font-semibold mb-3 sm:mb-4 transition-colors duration-300 ${variant.title}`}
+      >
         {service.title}
       </h3>
 

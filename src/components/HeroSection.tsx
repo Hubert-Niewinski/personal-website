@@ -9,19 +9,17 @@ export function HeroSection() {
       <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-8 lg:mb-12">
         {/* Photo Section - Modern Rounded Rectangle */}
         <div className="relative" data-test-id="profile-photo">
-          <div className="w-48 h-60 sm:w-56 sm:h-72 lg:w-72 lg:h-96 rounded-3xl bg-gradient-to-br from-slate-600 to-slate-700 p-1 shadow-2xl shadow-slate-900/50 hover:shadow-slate-900/70 transition-shadow duration-500">
+          <div className="w-72 h-96 sm:w-80 sm:h-[26rem] lg:w-80 lg:h-[28rem] rounded-3xl bg-gradient-to-br from-slate-600 to-slate-700 p-1 shadow-2xl shadow-slate-900/50 hover:shadow-slate-900/70 transition-shadow duration-500">
             <Image
               src="/profile.jpg"
               alt="Hubert Niewiński - Software Engineer and Public Speaker"
               className="w-full h-full rounded-3xl object-cover"
-              width={288}
-              height={384}
+              width={320}
+              height={448}
               priority
+              fetchPriority="high"
             />
           </div>
-          {/* Subtle accent dots - static but glowing with softer blur */}
-          <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-6 h-6 sm:w-8 sm:h-8 bg-slate-500 rounded-full shadow-2xl shadow-slate-500/40 blur-[0.5px]"></div>
-          <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-4 h-4 sm:w-6 sm:h-6 bg-slate-600 rounded-full shadow-2xl shadow-slate-600/40 blur-[0.5px]"></div>
         </div>
 
         {/* Header and Info */}

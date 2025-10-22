@@ -4,6 +4,55 @@
  */
 
 /**
+ * Container layout classes
+ */
+export const CONTAINER_CLASS =
+  'min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white';
+
+/**
+ * Common text color classes - use these for consistent theming
+ */
+export const TEXT_COLORS = {
+  primary: {
+    base: 'text-slate-300',
+    hover: 'hover:text-slate-200',
+    muted: 'text-slate-400',
+  },
+  accent: {
+    base: 'text-blue-400',
+    hover: 'hover:text-blue-400',
+    muted: 'text-blue-300',
+  },
+  white: 'text-white',
+  gray: {
+    light: 'text-gray-300',
+    base: 'text-gray-400',
+    dark: 'text-gray-500',
+  },
+} as const;
+
+/**
+ * Common gradient background classes
+ */
+export const GRADIENTS = {
+  background: {
+    primary: 'bg-gradient-to-br from-slate-600 to-slate-700',
+    card: 'bg-gradient-to-br from-slate-800/40 to-slate-900/40',
+    cardPrimary: 'bg-gradient-to-br from-blue-900/30 to-slate-900/40',
+  },
+  hover: {
+    blue: 'bg-gradient-to-br from-blue-500/5 to-purple-500/5',
+    slate: 'bg-gradient-to-br from-slate-700/5 to-slate-800/5',
+  },
+  text: {
+    default: 'bg-gradient-to-r from-slate-200 to-slate-300',
+    bluePurple: 'bg-gradient-to-r from-blue-400 to-purple-400',
+    slate: 'bg-gradient-to-r from-slate-300 to-slate-400',
+    slateLight: 'bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200',
+  },
+} as const;
+
+/**
  * Common icon sizes - use these for consistent icon dimensions
  */
 export const ICON_SIZES = {

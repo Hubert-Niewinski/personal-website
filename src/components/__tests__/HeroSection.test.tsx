@@ -2,16 +2,20 @@ import { render, screen } from '@testing-library/react';
 import { HeroSection } from '../HeroSection';
 
 // Mock Next.js Image component
-type NextImageMockProps = React.ImgHTMLAttributes<HTMLImageElement> & { priority?: boolean };
+type NextImageMockProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  priority?: boolean;
+  fetchPriority?: 'high' | 'low' | 'auto';
+};
 
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: NextImageMockProps) => {
-    const { priority, ...rest } = props;
+    const { priority, fetchPriority, ...rest } = props;
     void priority;
+    void fetchPriority;
 
     // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-    return <img {...rest} />;
+    return <img {...rest} data-fetchpriority={fetchPriority} />;
   },
 }));
 
@@ -124,8 +128,14 @@ describe('HeroSection', () => {
     it('should have proper image dimensions', () => {
       render(<HeroSection />);
       const image = screen.getByAltText('Hubert Niewiński - Software Engineer and Public Speaker');
-      expect(image).toHaveAttribute('width', '288');
-      expect(image).toHaveAttribute('height', '384');
+      expect(image).toHaveAttribute('width', '320');
+      expect(image).toHaveAttribute('height', '448');
+    });
+
+    it('should have fetchPriority set to high for LCP optimization', () => {
+      render(<HeroSection />);
+      const image = screen.getByAltText('Hubert Niewiński - Software Engineer and Public Speaker');
+      expect(image).toHaveAttribute('data-fetchpriority', 'high');
     });
   });
 

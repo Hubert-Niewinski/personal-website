@@ -1,7 +1,7 @@
 'use client';
 
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { CONTAINER_CLASS } from '@/types/styles';
+import { CONTAINER_CLASS } from '@/constants/styles';
 import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/HeroSection';
 import { ServicesSection } from '@/components/ServicesSection';

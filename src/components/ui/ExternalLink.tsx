@@ -1,4 +1,5 @@
 import { Icon } from './Icon';
+import { ICON_SIZES } from '@/constants/styles';
 
 interface ExternalLinkProps {
   href: string;
@@ -12,10 +13,10 @@ export function ExternalLink({ href, children, className = '' }: ExternalLinkPro
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`text-lg text-blue-400 hover:text-blue-300 transition-colors duration-200 inline-flex items-center gap-1 ${className}`}
+      className={`inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors underline decoration-blue-400/30 hover:decoration-blue-300/50 ${className}`}
     >
       {children}
-      <Icon name="externalLink" className="w-4 h-4" />
+      <Icon name="externalLink" className={ICON_SIZES.sm} />
     </a>
   );
 }

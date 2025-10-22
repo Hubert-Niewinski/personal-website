@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -8,11 +8,15 @@ import './globals.css';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -30,6 +34,12 @@ export const metadata: Metadata = {
     },
   ],
   creator: authorConfig.name,
+  publisher: authorConfig.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -46,6 +56,13 @@ export const metadata: Metadata = {
         alt: `${authorConfig.name} - ${authorConfig.jobTitle}`,
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: '@hubertniewinski', // Update with actual Twitter handle if available
   },
   robots: {
     index: true,
@@ -65,6 +82,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,6 +101,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to external origins for better performance */}
+        <link rel="preconnect" href="https://giscus.app" />
+        <link rel="dns-prefetch" href="https://giscus.app" />
+
         <link
           rel="alternate"
           type="application/rss+xml"

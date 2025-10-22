@@ -1,3 +1,5 @@
+import { ICON_SIZES } from '@/constants/styles';
+
 interface ActionButtonProps {
   href: string;
   children: React.ReactNode;
@@ -9,7 +11,7 @@ export function ActionButton({ href, children, icon, size = 'sm' }: ActionButton
   const sizeClasses = size === 'sm' ? 'text-xs px-3 py-2' : 'px-4 py-2 text-sm font-medium';
 
   const defaultIcon = (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className={ICON_SIZES.sm} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

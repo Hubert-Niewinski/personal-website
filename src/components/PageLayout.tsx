@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { CONTAINER_CLASS } from '@/types/styles';
+import { CONTAINER_CLASS } from '@/constants/styles';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';

@@ -9,7 +9,7 @@ import { MDXContent } from '@/components/MDXContent';
 import { ShareButtons } from '@/components/ShareButtons';
 import { Comments } from '@/components/Comments';
 import { GradientText } from '@/components/ui/GradientText';
-import { CONTAINER_CLASS } from '@/types/styles';
+import { CONTAINER_CLASS } from '@/constants/styles';
 import { blogCategories } from '@/constants/blog';
 import { siteConfig, authorConfig } from '@/constants/metadata';
 import { generateBlogPostSchema } from '@/lib/structured-data';

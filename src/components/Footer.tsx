@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Icon, LinkedInIcon, GitHubIcon } from '@/components/ui/Icon';
+import { ICON_SIZES } from '@/constants/styles';
 
 export function Footer() {
   return (
@@ -71,7 +72,7 @@ export function Footer() {
                 className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
                 data-testid="footer-email"
               >
-                <Icon name="email" className="w-4 h-4 flex-shrink-0" />
+                <Icon name="email" className={`${ICON_SIZES.sm} flex-shrink-0`} />
                 niewinskihubert@gmail.com
               </a>
               <a
@@ -81,7 +82,7 @@ export function Footer() {
                 className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
                 data-testid="footer-linkedin"
               >
-                <LinkedInIcon className="w-4 h-4 flex-shrink-0" />
+                <LinkedInIcon className={`${ICON_SIZES.sm} flex-shrink-0`} />
                 LinkedIn Profile
               </a>
               <a
@@ -91,7 +92,7 @@ export function Footer() {
                 className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
                 data-testid="footer-github"
               >
-                <GitHubIcon className="w-4 h-4 flex-shrink-0" />
+                <GitHubIcon className={`${ICON_SIZES.sm} flex-shrink-0`} />
                 GitHub Portfolio
               </a>
             </div>
