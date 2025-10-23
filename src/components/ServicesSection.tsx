@@ -20,7 +20,7 @@ export function ServicesSection() {
             What I Can Help You With
           </GradientText>
           <p
-            className="text-base sm:text-lg max-w-3xl mx-auto leading-[1.7] text-[#C8C8E0]"
+            className="text-base sm:text-lg max-w-3xl mx-auto leading-[1.7] text-slate-200"
             data-test-id="services-subtitle"
           >
             Comprehensive solutions for your testing, development, and DevOps needs
@@ -35,10 +35,10 @@ export function ServicesSection() {
 
         {/* Simple text CTA */}
         <div className="text-center mt-16">
-          <p className="text-lg leading-[1.7] text-[#C8C8E0]">
+          <p className="text-lg leading-[1.7] text-slate-200">
             Interested in working together? I&apos;d love to hear about your project.
           </p>
-          <p className="text-sm mt-2 leading-[1.7] text-slate-400">
+          <p className="text-sm mt-2 leading-[1.7] text-slate-300">
             If it&apos;s outside my expertise, I&apos;m happy to recommend someone from my network
             who would be a better fit.
           </p>
@@ -64,10 +64,10 @@ export function ServicesSection() {
               data-animate="fade-in"
               style={{ animationDelay: stat.delay }}
             >
-              <div className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 transition-all duration-300 text-slate-300 group-hover:text-slate-200 group-hover:scale-125">
+              <div className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 transition-all duration-300 text-white group-hover:text-blue-200 group-hover:scale-125">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm transition-colors duration-300 text-gray-400 group-hover:text-gray-300">
+              <div className="text-xs sm:text-sm transition-colors duration-300 text-slate-300 group-hover:text-slate-200">
                 {stat.label}
               </div>
             </div>

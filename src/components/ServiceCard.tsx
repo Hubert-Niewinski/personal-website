@@ -66,12 +66,12 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       </h3>
 
       {/* Description */}
-      <p className="text-xs sm:text-sm leading-[1.7] mb-4 sm:mb-5 lg:mb-6 text-[#C8C8E0]">
+      <p className="text-xs sm:text-sm leading-[1.7] mb-4 sm:mb-5 lg:mb-6 text-slate-200">
         {service.description}
       </p>
 
       {/* Features */}
-      <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-400">
+      <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-300">
         {service.features.map((feature, featureIndex) => (
           <li key={featureIndex} className="flex items-center">
             <div className="w-1.5 h-1.5 rounded-full mr-2 sm:mr-3 bg-slate-500"></div>

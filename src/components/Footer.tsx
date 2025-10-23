@@ -15,8 +15,8 @@ export function Footer() {
             className="space-y-3 sm:space-y-4 text-center flex flex-col items-center"
             data-testid="footer-about"
           >
-            <h3 className="text-base sm:text-lg font-semibold text-slate-300">Hubert Niewiński</h3>
-            <p className="text-xs sm:text-sm leading-[1.7] text-[#C8C8E0] text-center">
+            <h3 className="text-base sm:text-lg font-semibold text-white">Hubert Niewiński</h3>
+            <p className="text-xs sm:text-sm leading-[1.7] text-slate-200 text-center">
               Senior Test Automation Engineer at Sii Poland. IT meetup speaker and Toastmasters
               member with 6 years of public speaking experience.
             </p>
@@ -27,7 +27,7 @@ export function Footer() {
             className="space-y-3 sm:space-y-4 text-center flex flex-col items-center"
             data-testid="footer-links"
           >
-            <h3 className="text-base sm:text-lg font-semibold text-slate-300">Quick Links</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-white">Quick Links</h3>
             <div className="flex flex-col items-center sm:items-start space-y-2">
               <Link
                 href="/"
@@ -65,7 +65,7 @@ export function Footer() {
             className="space-y-3 sm:space-y-4 text-center flex flex-col items-center"
             data-testid="footer-contact"
           >
-            <h3 className="text-base sm:text-lg font-semibold text-slate-300">Connect</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-white">Connect</h3>
             <div className="flex flex-col items-center space-y-2">
               <a
                 href="mailto:niewinskihubert@gmail.com"

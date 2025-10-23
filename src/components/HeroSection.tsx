@@ -38,7 +38,7 @@ export function HeroSection() {
             >
               Software Engineer and Public Speaker
             </p>
-            <p className="text-base sm:text-lg leading-[1.7] max-w-2xl lg:mx-0 mx-auto text-[#C8C8E0] text-pretty">
+            <p className="text-base sm:text-lg leading-[1.7] max-w-2xl lg:mx-0 mx-auto text-slate-200 text-pretty">
               Senior Test Automation Engineer and Technical Assessor at Sii Poland. Test automation
               is my core specialization, complemented by hands-on experience in full-stack
               development, DevOps practices, and AI technologies—skills I continuously sharpen
@@ -48,7 +48,7 @@ export function HeroSection() {
               fan and enthusiastic amateur player—passion level: 100%, talent level: debatable at
               best.
             </p>
-            <p className="text-sm sm:text-base mt-4 text-slate-400">
+            <p className="text-sm sm:text-base mt-4 text-slate-300">
               📍 Based in Białystok, Poland • 🗣️ Polish (Native), English (Fluent), German
               (Intermediate)
             </p>
