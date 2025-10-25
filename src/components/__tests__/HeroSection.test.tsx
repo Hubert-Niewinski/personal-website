@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import { render, screen } from '@testing-library/react';
 import { HeroSection } from '../HeroSection';
 
@@ -5,17 +6,24 @@ import { HeroSection } from '../HeroSection';
 type NextImageMockProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   priority?: boolean;
   fetchPriority?: 'high' | 'low' | 'auto';
+  placeholder?: 'blur' | 'empty' | 'data';
 };
 
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: NextImageMockProps) => {
-    const { priority, fetchPriority, ...rest } = props;
-    void priority;
-    void fetchPriority;
+    const { priority, fetchPriority, placeholder, src, alt, ...rest } = props;
+    const resolvedSrc =
+      typeof src === 'string' ? src : ((src as { src?: string } | undefined)?.src ?? '');
 
-    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-    return <img {...rest} data-fetchpriority={fetchPriority} />;
+    return createElement('img', {
+      ...rest,
+      alt: alt ?? '',
+      src: resolvedSrc,
+      'data-fetchpriority': fetchPriority ?? 'auto',
+      'data-priority': priority ? 'true' : 'false',
+      'data-placeholder': placeholder ?? 'empty',
+    });
   },
 }));
 
@@ -132,9 +140,10 @@ describe('HeroSection', () => {
       expect(image).toHaveAttribute('height', '448');
     });
 
-    it('should have fetchPriority set to high for LCP optimization', () => {
+    it('should mark image as priority for LCP optimization', () => {
       render(<HeroSection />);
       const image = screen.getByAltText('Hubert Niewiński - Software Engineer and Public Speaker');
+      expect(image).toHaveAttribute('data-priority', 'true');
       expect(image).toHaveAttribute('data-fetchpriority', 'high');
     });
   });

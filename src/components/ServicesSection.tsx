@@ -29,7 +29,7 @@ export function ServicesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
+            <ServiceCard key={service.testId} service={service} index={index} />
           ))}
         </div>
 
@@ -57,9 +57,9 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div
-              key={index}
+              key={stat.label}
               className="group text-center p-4 sm:p-5 lg:p-6 rounded-xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 cursor-default bg-slate-800/40 border border-slate-700/20 hover:border-slate-600/40 hover:shadow-xl hover:shadow-slate-500/30"
               data-animate="fade-in"
               style={{ animationDelay: stat.delay }}

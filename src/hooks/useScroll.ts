@@ -7,10 +7,24 @@ export function useScroll() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (typeof window === 'undefined') {
+        return;
+      }
+
+      const shouldBeScrolled = window.scrollY > 50;
+
+      setScrolled((prev) => {
+        if (prev === shouldBeScrolled) {
+          return prev;
+        }
+
+        return shouldBeScrolled;
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

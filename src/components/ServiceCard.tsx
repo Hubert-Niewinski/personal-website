@@ -72,8 +72,8 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
       {/* Features */}
       <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-300">
-        {service.features.map((feature, featureIndex) => (
-          <li key={featureIndex} className="flex items-center">
+        {service.features.map((feature) => (
+          <li key={feature} className="flex items-center">
             <div className="w-1.5 h-1.5 rounded-full mr-2 sm:mr-3 bg-slate-500"></div>
             {feature}
           </li>

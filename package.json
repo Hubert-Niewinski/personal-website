@@ -26,6 +26,19 @@
       "prettier --write"
     ]
   },
+  "browserslist": {
+    "production": [
+      "last 2 Chrome versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "last 2 Edge versions"
+    ],
+    "development": [
+      "last 1 Chrome version",
+      "last 1 Firefox version",
+      "last 1 Safari version"
+    ]
+  },
   "dependencies": {
     "@giscus/react": "^3.1.0",
     "@mdx-js/loader": "^3.1.1",

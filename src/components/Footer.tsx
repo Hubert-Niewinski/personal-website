@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Icon, LinkedInIcon, GitHubIcon } from '@/components/ui/Icon';
 import { ICON_SIZES } from '@/constants/styles';
+import { navigationItems, socialLinks } from '@/constants/navigation';
+import { getSocialIcon } from '@/utils/getSocialIcon';
 
 export function Footer() {
   return (
@@ -29,34 +30,16 @@ export function Footer() {
           >
             <h3 className="text-base sm:text-lg font-semibold text-white">Quick Links</h3>
             <div className="flex flex-col items-center sm:items-start space-y-2">
-              <Link
-                href="/"
-                className="text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-link-home"
-              >
-                Home
-              </Link>
-              <Link
-                href="/resume"
-                className="text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-link-resume"
-              >
-                Resume
-              </Link>
-              <Link
-                href="/speaking"
-                className="text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-link-speaking"
-              >
-                Speaking
-              </Link>
-              <Link
-                href="/blog"
-                className="text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-link-blog"
-              >
-                Blog
-              </Link>
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.section}
+                  href={item.section}
+                  className="text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
+                  data-testid={`footer-link-${item.label.toLowerCase()}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -67,34 +50,24 @@ export function Footer() {
           >
             <h3 className="text-base sm:text-lg font-semibold text-white">Connect</h3>
             <div className="flex flex-col items-center space-y-2">
-              <a
-                href="mailto:niewinskihubert@gmail.com"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-email"
-              >
-                <Icon name="email" className={`${ICON_SIZES.sm} flex-shrink-0`} />
-                niewinskihubert@gmail.com
-              </a>
-              <a
-                href="https://linkedin.com/in/hubert-niewinski"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-linkedin"
-              >
-                <LinkedInIcon className={`${ICON_SIZES.sm} flex-shrink-0`} />
-                LinkedIn Profile
-              </a>
-              <a
-                href="https://github.com/hubert-niewinski"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
-                data-testid="footer-github"
-              >
-                <GitHubIcon className={`${ICON_SIZES.sm} flex-shrink-0`} />
-                GitHub Portfolio
-              </a>
+              {socialLinks.map((link) => {
+                const externalProps = link.isExternal
+                  ? { target: '_blank', rel: 'noopener noreferrer' as const }
+                  : {};
+
+                return (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm transition-colors text-gray-300 hover:text-blue-400"
+                    data-testid={`footer-${link.name.toLowerCase()}`}
+                    {...externalProps}
+                  >
+                    {getSocialIcon(link.icon, `${ICON_SIZES.sm} flex-shrink-0`)}
+                    {link.displayText ?? link.name}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -116,5 +89,3 @@ export function Footer() {
     </footer>
   );
 }
-// test comment
-// test

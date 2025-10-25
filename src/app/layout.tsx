@@ -98,13 +98,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isVercelDeployment = Boolean(process.env.NEXT_PUBLIC_VERCEL_URL);
+  const isAnalyticsEnabled = process.env.NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS === 'true';
+  const isSpeedInsightsEnabled = process.env.NEXT_PUBLIC_ENABLE_VERCEL_SPEED_INSIGHTS === 'true';
+  const shouldRenderAnalytics = isVercelDeployment || isAnalyticsEnabled;
+  const shouldRenderSpeedInsights = isVercelDeployment || isSpeedInsightsEnabled;
+
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external origins for better performance */}
-        <link rel="preconnect" href="https://giscus.app" />
-        <link rel="dns-prefetch" href="https://giscus.app" />
-
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -114,8 +116,8 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <Analytics />
-        <SpeedInsights />
+        {shouldRenderAnalytics && <Analytics />}
+        {shouldRenderSpeedInsights && <SpeedInsights />}
       </body>
     </html>
   );

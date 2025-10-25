@@ -1,17 +1,26 @@
 'use client';
 
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import dynamic from 'next/dynamic';
 import { CONTAINER_CLASS } from '@/constants/styles';
 import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/HeroSection';
 import { ServicesSection } from '@/components/ServicesSection';
-import { Footer } from '@/components/Footer';
-import BackToTop from '@/components/BackToTop';
 import { BackgroundGradient } from '@/components/BackgroundGradient';
 
-export function HomeClient() {
-  useIntersectionObserver();
+// Defer heavy or non-critical visual components to the client to reduce initial JS
 
+const Footer = dynamic(() => import('@/components/Footer').then((mod) => mod.Footer), {
+  ssr: false,
+});
+
+const PageEffects = dynamic(
+  () => import('@/components/PageEffects').then((mod) => mod.PageEffects),
+  {
+    ssr: false,
+  }
+);
+
+export function HomeClient() {
   return (
     <div className={`${CONTAINER_CLASS} relative overflow-hidden`}>
       <BackgroundGradient />
@@ -26,7 +35,7 @@ export function HomeClient() {
       </div>
 
       <Footer />
-      <BackToTop />
+      <PageEffects />
     </div>
   );
 }
