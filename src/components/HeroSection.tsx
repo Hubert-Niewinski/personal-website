@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export function HeroSection() {
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-8 py-12 lg:py-16" data-test-id="hero-section">
+    <section className="max-w-6xl mx-auto px-4 sm:px-8" data-test-id="hero-section">
       {/* Photo and Header Layout */}
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-8 lg:mb-12">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-8 lg:mb-12">
         {/* Photo Section - Modern Rounded Rectangle */}
         <div className="relative" data-test-id="profile-photo">
           <div className="w-72 h-96 sm:w-80 sm:h-[26rem] lg:w-80 lg:h-[28rem] rounded-3xl bg-gradient-to-br from-slate-600 to-slate-700 p-1 shadow-2xl shadow-slate-900/50 hover:shadow-slate-900/70 transition-shadow duration-500">

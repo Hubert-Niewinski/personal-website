@@ -7,7 +7,7 @@ export function ServicesSection() {
     <>
       {/* Services/Offers Section */}
       <section
-        className="max-w-6xl mx-auto mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-8"
+        className="max-w-6xl mx-auto mt-12 sm:mt-16 lg:mt-20 px-4 sm:px-8"
         data-test-id="services-section"
       >
         <div className="text-center mb-6 sm:mb-8 lg:mb-12" data-animate="fade-in">
@@ -34,7 +34,7 @@ export function ServicesSection() {
         </div>
 
         {/* Simple text CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12 sm:mt-14 lg:mt-16">
           <p className="text-lg leading-[1.7] text-slate-200">
             Interested in working together? I&apos;d love to hear about your project.
           </p>
@@ -47,7 +47,7 @@ export function ServicesSection() {
 
       {/* Quick Stats & Achievements */}
       <div
-        className="max-w-4xl mx-auto mt-8 sm:mt-12 lg:mt-16 px-4 sm:px-8"
+        className="max-w-4xl mx-auto mt-12 sm:mt-14 lg:mt-16 px-4 sm:px-8"
         data-test-id="achievements-section"
       >
         <div className="text-center mb-6 sm:mb-8 lg:mb-10 text-gray-300" data-animate="fade-in">
