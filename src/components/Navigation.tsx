@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { navigationItems, socialLinks } from '@/constants/navigation';
 import { useScroll } from '@/hooks/useScroll';
 import { Icon, LinkedInIcon, GitHubIcon } from '@/components/ui/Icon';
@@ -48,7 +49,7 @@ export function Navigation() {
             {navigationItems.map((item, index) => {
               const isActive = pathname === item.section;
               return (
-                <a
+                <Link
                   key={index}
                   href={item.isExternalPage ? item.section : `#${item.section}`}
                   className={`group relative flex items-center space-x-2.5 px-7 py-3.5 rounded-xl transition-all duration-300 hover:scale-110 ${
@@ -87,7 +88,7 @@ export function Navigation() {
                         : 'bg-gradient-to-br from-slate-500/0 to-slate-600/0 group-hover:from-blue-500/15 group-hover:to-purple-500/15'
                     }`}
                   ></div>
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -194,7 +195,7 @@ export function Navigation() {
                 {navigationItems.map((item, index) => {
                   const isActive = pathname === item.section;
                   return (
-                    <a
+                    <Link
                       key={index}
                       href={item.isExternalPage ? item.section : `#${item.section}`}
                       className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
@@ -206,7 +207,7 @@ export function Navigation() {
                     >
                       <Icon name={item.icon} className={`${ICON_SIZES.md} flex-shrink-0`} />
                       <span className="text-base font-medium">{item.label}</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
