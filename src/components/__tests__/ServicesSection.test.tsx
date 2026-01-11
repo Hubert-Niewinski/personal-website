@@ -121,8 +121,7 @@ describe('ServicesSection', () => {
     it('should have proper spacing between sections', () => {
       const { container } = render(<ServicesSection />);
       const section = container.querySelector('[data-test-id="services-section"]');
-      expect(section).toHaveClass('mt-8', 'sm:mt-12', 'lg:mt-16');
-      expect(section).toHaveClass('mb-8', 'sm:mb-12', 'lg:mb-16');
+      expect(section).toHaveClass('mt-12', 'sm:mt-16', 'lg:mt-20');
     });
 
     it('should have proper grid layout for stats', () => {

@@ -365,7 +365,7 @@ export const toastmastersAchievements: ToastmastersAchievement[] = [
 export const publications: Publication[] = [
   {
     id: '1',
-    title: 'Od testera manualnego do testera automatyzującego — wskazówki asesora technicznego',
+    title: 'Od testera manualnego do testera automatyzującego - wskazówki asesora technicznego',
     event: 'BiałQA Białystok',
     date: 'Jun 12, 2025',
     description:

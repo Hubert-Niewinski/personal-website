@@ -12,7 +12,7 @@ export interface SpeakingEvent {
 export const speakingEvents: SpeakingEvent[] = [
   {
     id: '3',
-    title: 'Od testera manualnego do testera automatyzującego — wskazówki asesora technicznego',
+    title: 'Od testera manualnego do testera automatyzującego - wskazówki asesora technicznego',
     event: 'BiałQA Białystok',
     date: 'Jun 2025',
     location: 'Białystok, Poland',

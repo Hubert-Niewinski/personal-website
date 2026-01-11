@@ -127,7 +127,7 @@ describe('ShareButtons', () => {
 
       await waitFor(() => {
         expect(mockWriteText).toHaveBeenCalledWith(mockProps.url);
-        expect(mockAlert).toHaveBeenCalledWith('Link copied to clipboard!');
+        expect(screen.getByText('Link copied to clipboard.')).toBeInTheDocument();
       });
     });
 
